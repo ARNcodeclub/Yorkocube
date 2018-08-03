@@ -1,0 +1,289 @@
+/* GENERAL */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 15px;
+    min-height: 100vh;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+/* STEPS */
+
+#steps ul
+{
+    margin: 80px 0;
+}
+#steps ul li
+{
+    width: 300px;
+    float:left;
+    padding-top: 140px;
+    text-align: center;
+    margin-right: 10px;
+
+}
+#steps h4
+{
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+#steps p
+{
+    margin-bottom: 20px;
+}
+
+.fas{
+  font-size: 5em;
+  color: #79c15e;
+  margin-bottom: 5vh;
+}
+
+/* POSSIBILITIES */
+
+
+#possibilities
+{
+
+    padding:  60px 0;
+}
+#possibilities article
+{
+    width: 460px;
+    height: 270px;
+    float: left;
+    border-radius: 10px;
+}
+#possibilities article:first-child
+{
+    margin-right: 20px;
+}
+
+#possibilities:hover article{
+  transform: scale(15deg);
+}
+
+.overlay
+{
+    background: rgba(255,255,255, 0.95);
+    height: 100%;
+    width: 190px;
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+article h4
+{
+    border-bottom:  1px solid #ddd;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#possibilities p
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.button-2
+{
+    color: #fff;
+    background-color: #D0F5A9;
+    padding: 6px 20px;
+    border-radius: 3px;
+}
+.button-2:hover
+{
+  color: #fff;
+  background-color: #444;
+}
+
+/* VIDEO */
+
+#box1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: -150px;
+}
+
+#box1 p{
+  font-size: 25px;
+  margin: 15px 0 0 0;
+  padding-bottom: 10px;
+  width: 5em;
+  text-align: center;
+  border-bottom: 2px solid #9c9b9b;
+}
+
+#video{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* margin-bottom: -150px; */
+}
+
+video{
+  border: 2px solid #fff;
+}
+
+/* FORMULAIRE */
+
+#auth{
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+.button_auth{
+  font-size: 20px;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: #8ce88c;
+  padding: 15px;
+  margin: 15px;
+  width: 10em;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.button_auth:hover{
+  background-color: #72ba51;
+}
+
+/* CONTACT */
+
+#contact
+{
+    padding: 60px 0;
+    text-align: center
+}
+#contact h3
+{
+    width: 400px;
+    text-transform: uppercase;
+    margin: 0 auto 20px auto;
+    border-bottom:  1px solid #D0F5A9;
+    padding-bottom: 20px;
+}
+form
+{
+    margin: 60px 0 20px 0;
+}
+label
+{
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #777;
+}
+
+.button-3
+{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 11px;
+    background-color: #b1f26c;
+    border-style: none;
+    border-radius: 3px;
+    transition: all .2s ease;
+}
+
+.button-3:hover
+{
+    color: #fff;
+    background-color: #87c347;
+}
+
+/* STAFF */
+
+#staff {
+  display: flex;
+  flex-direction: column;
+  background-color: #585858;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+}
+
+#staff h4, h3{
+  color: white;
+}
+
+#staffall{
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
+#staff img{
+  width: 120px;
+}
+
+/* FOOTER */
+
+
+footer{
+  display: flex;
+  position: relative;
+  background-color:#282E34;
+  padding: 20px;
+  color:#ddd;
+}
+
+footer p{
+  color:#ddd;
+  padding-left: 15px;
+}
+
+#Cours img {
+  margin-left: 250px;
+  width: 800px;
+  border: 3px solid #8cff99;
+}
+
+#cours{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px;
+  align-items: center;
+}
+
+video{
+  margin: 15px;
+}
+
+#title_cours{
+  text-decoration: underline;
+  font-size: 25px;
+  padding: 15px;
+}
+
+#infos_video{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  background-color: #fff;
+  padding: 25px;
+}
+
+#infos_video li{
+  list-style: initial;
+  padding: 15px;
+}
+
+a{
+  outline: none;
+}

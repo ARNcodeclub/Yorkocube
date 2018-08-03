@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  /* height: 100%; */
+}
+
+body{
+  /* height: 100vh; */
+  overflow-x: hidden;
+  font-family: "Varela Round";
+}
+
+#loader{
+  background: url('../images/loader3.gif') 50% 50% no-repeat rgba(255, 255, 255, 0.8);
+  cursor: wait;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}

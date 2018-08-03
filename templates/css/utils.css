@@ -1,0 +1,57 @@
+@keyframes shake{
+	0%, to{
+		transform:translateZ(0)
+		}
+	66%{
+		transform:translate3d(-10px,0,0)
+		}
+	33%{
+		transform:translate3d(10px,0,0)
+	}
+}
+
+@keyframes disparition{
+	0%{ opacity: 1; }
+	20%{ opacity: .8; }
+	40%{ opacity: .6; }
+	60%{ opacity: .4; }
+	80%{ opacity: .2; }
+	100%{ display:none; opacity: 0; }
+}
+
+/**************** Tips Alert ****************/
+
+.tips-alert{
+	border-radius: 2px;
+	position: fixed;
+	right: 15px;
+	top: 70px;
+	margin: 5px;
+  color: #fff;
+  padding: 15px 15px 15px 20px;
+	background-color: #323232;
+	animation: shake .5s 1 0s, disparition .1s forwards 5s;
+}
+
+.tips-alert i{
+	margin-right: 10px;
+
+}
+
+.error i{
+	font-size: 15px;
+	color: #e74c3c;
+}
+
+.reussi i{
+  color: #97e73c;
+}
+
+.info i{
+	color: #3ca9e7;
+}
+
+.tips-alert a{
+	color: #fff;
+}
+/*********************************************/

@@ -1,0 +1,228 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    background: linear-gradient(to bottom, #fff, #a1a1a1 );
+    overflow-x: hidden;
+    font-family: "Varela Round";
+}
+
+/************************ NAVs *********************/
+
+nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+nav img{
+  width: 200px;
+}
+
+nav .lien{
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 15px;
+  float: right;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+nav .lien:nth-child(2){
+  margin-left: 50vw;
+}
+
+nav .lien:hover{
+  background-color: #74da4f;
+}
+
+a{
+  outline: none;
+}
+
+
+/************************ Box1 - Video + bouton d'auth *********************/
+
+#box1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#box1 p{
+  margin: 10px;
+}
+
+#box1 .button_auth{
+  font-size: 20px;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: #58b658;
+  padding: 15px;
+  margin: 15px;
+  width: 10em;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+#box1 .button_auth:hover{
+  background-color: #4b7e34;
+}
+
+/************************ Box2: Les 3 Points *********************/
+
+#box2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+#box2 ul{
+  display: inherit;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+}
+
+
+#box2 ul li{
+  width: 33%;
+  margin: 15px;
+  text-align: center;
+  list-style: none;
+}
+
+#box2 ul li *{
+  margin: 15px;
+}
+
+.steps_icons{
+  font-size: 4em;
+  margin: 10px;
+  color: #79c15e;
+}
+
+/************************ Box3 : Box d'infos sur les cours *********************/
+
+#box3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#box3 article{
+  display: inherit;
+  margin: 15px;
+  border-radius: 15px;
+  width: 460px;
+  height: 270px;
+  text-align: left;
+}
+
+#box3 .infos_cours_texte{
+  width: 160px;
+  background-color: #fff;
+  text-align: center;
+  color: rgba(123, 181, 92, 1);
+  padding: 15px;
+}
+
+#box3 .infos_cours_texte h4{
+  color: #000;
+  margin: 0 0 15px 0;
+}
+
+#box3 .infos_cours_texte p{
+  font-size: 13px;
+  margin: 15px;
+}
+
+#box3 .infos_cours_texte a{
+  text-decoration: none;
+  color: #fff;
+  background-color: #8ffb97;
+  bottom: -15px;
+  padding: 5px;
+}
+
+/************************ Box4 : Le Staff *********************/
+
+#box4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: #535353;
+  color: #fff;
+  padding: 15px;
+}
+
+#box4 *{
+  padding: 5px;
+}
+
+#staff{
+  display: inherit;
+  flex-direction: row;
+}
+
+.staff_box{
+  width: 33%;
+}
+
+#box4 img{
+  width: 120px;
+}
+/*********************** BOX5 ************************/
+
+#box5{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#box5 .button_auth{
+  font-size: 20px;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: #58b658;
+  padding: 15px;
+  margin: 15px;
+  width: 10em;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+#box5 .button_auth:hover{
+  background-color: #4b7e34;
+}
+
+
+/************************ Footer *********************/
+
+footer{
+  width: 100%;
+  padding: 20px;
+  background-color: #414141;
+  color: #fff;
+  text-align: center;
+  bottom: 0;
+}
+
+
+/************************  *********************/

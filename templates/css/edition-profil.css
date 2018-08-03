@@ -1,0 +1,68 @@
+#title-modif{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#title-modif i{
+  font-size: 4em;
+  margin-bottom: 50px;
+}
+
+form{
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+.modif-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.modif-box p{
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#modif-box-input{
+  display: flex;
+  flex-direction: row;
+}
+
+#modif-avatar{
+  display: flex;
+  align-items: center;
+}
+
+#modif-avatar img{
+  width: 100px;
+  border: 2px solid #fff;
+  background: #eeebeb;
+  box-shadow: 0 1px 9px #e0e0e0,inset 0 0 2px hsla(0,0%,84%,.75);
+  border-radius: 5px;
+  transition: all .3s ease;
+}
+
+#modif-avatar img:hover{
+  transform: scale(3);
+}
+
+#modif-valider{
+  display: flex;
+  flex-direction: row;
+  margin-right: 15px;
+}
+
+button{
+  padding: 15px;
+  border: 0px;
+  background-color: #fff;
+}
+
+button i{
+  font-size: 15px;
+}

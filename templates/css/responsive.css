@@ -1,0 +1,39 @@
+/********** Media Queries **********/
+@media screen and (max-width:750px){
+    header{
+    	padding: 10px;
+    }
+    nav{
+      position: absolute;
+      right: 5px;
+    }
+    nav a p{
+      display: none;
+    }
+    #profil-link-icon{
+    	margin: 0;
+    	font-size: 2.5em;
+    	color: #49d5b2;
+    	transition: all .5s ease;
+    }
+
+    #profil-link-avatar{
+    	margin: 0;
+    	font-size: 2.5em;
+    	color: #49d5b2;
+    	transition: all .5s ease;
+    }
+
+    #login_button{
+      display: none;
+    }
+
+    #deco_button, #modif_button{
+      margin: 0;
+      padding: 5px;
+    }
+
+    #deco_button p,  #modif_button p{
+      display: none;
+    }
+}
