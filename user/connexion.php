@@ -1,5 +1,8 @@
 <?php
 session_start();
+	if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && isset($_SESSION['pdp'])) {
+		header('Location: profil.php?id=' . $_SESSION['id']);
+	}
 	include('a-connect.php');
 	if (isset($_POST['formconnect']))
 	{

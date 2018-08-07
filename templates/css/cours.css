@@ -203,6 +203,11 @@ form{
   border: 1px solid #ebebeb;
 }
 
+.sous-commentaire{
+  border-left: 1px solid #eee;
+  margin-left: 12%;
+}
+
 .commentaire-message{
   display: flex;
   flex-direction: column;
@@ -252,6 +257,24 @@ form{
 }
 
 .repondreCommentaireBox{
+  display: none;
+}
+
+.reponseCommentaireForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.repondreCommentaireForm input{
+  background: #fff;
+  border: 1px solid #b0b0b0;
+  border-radius: 2px;
+  padding: 15px;
+  margin-left: 5px;
+}
+
+.idCommentaire{
   display: none;
 }
 

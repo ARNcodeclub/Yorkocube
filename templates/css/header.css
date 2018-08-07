@@ -145,12 +145,11 @@ nav a{
   align-items: center;
   left: 5px;
   padding: 5px;
-  transition: all .2s ease;
 }
 
 #profil-link-modif:hover{
-  /* background-color: rgb(113, 217, 49); */
-  background-color: rgb(58, 61, 56);
+  border: 1px solid rgb(58, 61, 56);
+  padding: 4px;
 }
 
 #profil-link-modif p, i{
@@ -160,8 +159,4 @@ nav a{
 #profil-link-modif i{
   font-size: 1.5em;
   vertical-align: middle;
-}
-
-#profil-link-modif:hover #modif_button, #profil-link-modif:hover p{
-  color: #fff;
 }

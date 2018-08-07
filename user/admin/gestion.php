@@ -115,5 +115,6 @@ if (isset($pasAdmin)) {
         <input type="submit" name="setMembre" value="Valider modifications sur membre">
       </form>
 
+      <a href="../profil.php?id=<?= $_SESSION['id'] ?>"><button type="button" name="button"><-Retour</button></a>
   </body>
 </html>

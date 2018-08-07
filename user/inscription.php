@@ -1,5 +1,8 @@
 <?php
 session_start();
+	if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && isset($_SESSION['pdp'])) {
+		header('Location: profil.php?id=' . $_SESSION['id']);
+	}
 	include('a-connect.php');
 	require_once('../templates/php/ImageManipulator.php');
 	// PARTIE SELECTIONNANT L'ID MAXIMUM DANS LA BDD ET RAJOUTE 1 POUR AVOIR l'ID QUE L'USER AURA

@@ -19,12 +19,13 @@ $coursMax = $reqMaxCours->fetch();
 if (isset($_POST['submit'])) {
   $msg = htmlspecialchars($_POST['comment']);
   if (!empty($msg)) {
-    $reqUser = $bdd->prepare('SELECT * FROM membre WHERE id = ?');
-    $reqUser->execute(array($_SESSION['id']));
-    $infoUser = $reqUser->fetch();
+    $reqId = $bdd->prepare('SELECT max(id) as dernier_id FROM commentaires');
+    $reqId->execute(array());
+    $infoId = $reqId->fetch();
+    $lastId = intval($infoId['dernier_id']) + 1;
     $date = date("d M Y\, H\hi");
-    $reqInsertComment = $bdd->prepare('INSERT INTO commentaires(auteur, contenu, date, id_tuto, id_auteur) VALUES(?,?,?,?,?) ');
-    $reqInsertComment->execute(array($infoUser['pseudo'], $msg, $date, $getid, $infoUser['id']));
+    $reqInsertComment = $bdd->prepare('INSERT INTO commentaires(auteur, contenu, date, id_tuto, id_auteur, reponseComm) VALUES(?,?,?,?,?,?) ');
+    $reqInsertComment->execute(array($_SESSION['pseudo'], $msg, $date, $getid, $_SESSION['id'], $lastId));
     $reussi = True;
   }else{
     $erreur = "Vous n'avez pas écrit de commentaire. Manque d'inspiration ?";
@@ -37,7 +38,8 @@ $reqNumberComments->execute(array($getid));
 $reqNumberComments = $reqNumberComments->fetch();
 $nbreComments = $reqNumberComments['nbre_comment'];
 
-$reqComments = $bdd->prepare("SELECT * FROM membre INNER JOIN commentaires ON commentaires.id_auteur = membre.id WHERE commentaires.id_tuto = ? ORDER BY commentaires.id");
+// Sort tous les commentaires dont l'id du tuto est egal a l'id de la page
+$reqComments = $bdd->prepare("SELECT * FROM membre INNER JOIN commentaires ON commentaires.id_auteur = membre.id WHERE commentaires.id_tuto = ? ORDER BY commentaires.reponseComm");
 $reqComments->execute(array($getid));
 
 // On récupère les infos concernant l'auteur_info
@@ -52,12 +54,12 @@ if($infosAuteur['description'] != NULL){
 }
 
 // Selectionne les cours que l'user suit (pour ensuite lui proposer de s'y inscrire si ce n'est pas déjà fait)
-$reqCoursSuivi = $bdd->prepare("SELECT * FROM cours_suivi INNER JOIN membre WHERE membre.id = ? AND cours_suivi.id_cours = ?");
-$reqCoursSuivi->execute(array($_SESSION['id'], $getid));
-$coursSuivi = array();
-while ($donnees = $reqCoursSuivi->fetch()) {
-  array_push($coursSuivi[$donnees['id_membre']] = $donnees['id_cours']);
-}
+// $reqCoursSuivi = $bdd->prepare("SELECT * FROM cours_suivi INNER JOIN membre WHERE membre.id = ? AND cours_suivi.id_cours = ?");
+// $reqCoursSuivi->execute(array($_SESSION['id'], $getid));
+// $coursSuivi = array();
+// while ($donnees = $reqCoursSuivi->fetch()) {
+//   array_push($coursSuivi[$donnees['id_membre']] = $donnees['id_cours']);
+// }
 
 // Selectionne les cours que l'user à écrit et entre leurs id dans un tableau
 $reqCommentsEcrit = $bdd->prepare("SELECT id FROM commentaires WHERE id_auteur = ?");
@@ -79,5 +81,29 @@ if (isset($_GET['supprimerCom']) && !empty($_GET['supprimerCom']) && $idComSuppr
     $erreur = "Bien essayé, mais j'ai sécurisé ça ;)";
   }
 }
+
+// DEBUT DU MODULE REPONSE COMMENTAIRE //
+/*
+  Système qui gère les réponses aux commentaires
+  Il fonctionne de la même facon que pour un commentaire normal sauf que la colonne "reponseComm" ne sera pas vide mais contiendra l'id du commentaire dont le message est la réponse
+*/
+
+// Si l'user à cliquer sur le bouton de validation pour envoyer sa réponse à un commentaire
+if (isset($_POST['repondreCommentaireValider'])) {
+    // Traitement des données reçue
+    $idCommentaire = intval($_POST['idCommentaire']);
+    $reponseCommentaire = htmlspecialchars($_POST['reponseCommentaire']);
+    if (!empty($reponseCommentaire)) {
+      $date = date("d M Y\, H\hi");
+      // Envoi à la bdd
+      $reqInsertAnswerComment = $bdd->prepare('INSERT INTO commentaires(auteur, contenu, date, id_tuto, id_auteur, reponseComm, reponseCommVrai) VALUES(?,?,?,?,?,?,?) ');
+      $reqInsertAnswerComment->execute(array($_SESSION['pseudo'], $reponseCommentaire, $date, $getid, $_SESSION['id'], $idCommentaire, 1));
+      $reussi = True;
+      header('Location: cours.php?id=' . $getid . '&reussi=True');
+    }else{
+      $erreur = "Pourquoi cliquer sur 'Répondre' si vous n'avez rien à dire ?";
+    }
+}
+// FIN DU MODULE REPONSE COMMENTAIRE //
 
 ?>

@@ -20,14 +20,14 @@ include '../user/a-function.php';
         <script src="../templates/js/jquery.js"></script>
         <script src="../templates/js/script.js"></script>
         <script type="text/javascript">
-        // $(function() {
-        //   var $button = $('.repondreCommentaireButton');
-        //   $button.on('click', function() {
-        //     $('.repondreCommentaireBox').css({"display": "flex"});
-        //   });
-        // });
-        //   $({
-        //   });
+        $(function() {
+          var $button = $('.repondreCommentaireButton');
+          $button.on('click', function() {
+            $('.repondreCommentaireBox').css({"display": "flex"});
+          });
+        });
+          $({
+          });
         </script>
         <link href="../templates/css/all.css" rel="stylesheet">
         <title>York3</title>
@@ -79,7 +79,11 @@ include '../user/a-function.php';
             <?php
             while ($donnees = $reqComments->fetch()) {?>
               <!-- Si l'user connecté est l'auteur du message, on lui propose de le supprimer -->
+            <?php if ($donnees['reponseCommVrai'] != 0): ?>
+              <div class="commentaire sous-commentaire">
+            <?php else: ?>
               <div class="commentaire">
+            <?php endif; ?>
                 <?php if ($donnees['id_auteur'] == $_SESSION['id']): ?>
                   <a href="?id=<?= $getid ?>&supprimerCom=<?= $donnees['id'] ?>"><i class="fas fa-times erase-button" alt title="Supprimer le commentaire"></i></a>
                 <?php endif; ?>
@@ -89,15 +93,20 @@ include '../user/a-function.php';
                   <p><?= $donnees['contenu'] ?></p>
                   <p class="commentaire-message-date"><?= $donnees['date'] ?></p>
                 </div>
-                <!-- <p class="repondreCommentaireButton" id="repondreCommentaireButton<?= $donnees['id'] ?>">Répondre</p> -->
+                <?php if ($donnees['reponseCommVrai'] == 0): ?>
+                  <p class="repondreCommentaireButton" id="repondreCommentaireButton<?= $donnees['id'] ?>">Répondre</p>
+                <?php endif; ?>
               </div>
               <!-- Boc contenant le formulaire permettant de répondre à des commentaires (caché par défaut)  -->
-              <!-- <div class="repondreCommentaireBox" id="repondreCommentaire<?= $donnees['id'] ?>">
+              <?php if ($donnees['reponseCommVrai'] == 0): ?>
+              <div class="repondreCommentaireBox" id="repondreCommentaire<?= $donnees['id'] ?>">
                 <form class="repondreCommentaireForm" action="" method="post">
+                  <input type="text" name="idCommentaire" class="idCommentaire" value="<?= $donnees['id'] ?>"> <!-- A Cacher -->
                   <input type="reponseCommentaire" name="reponseCommentaire" placeholder="Votre réponse">
                   <input type="submit" name="repondreCommentaireValider" value="Répondre">
                 </form>
-              </div> -->
+              </div>
+              <?php endif; ?>
             <?php
             }
             ?>
@@ -117,7 +126,7 @@ include '../user/a-function.php';
                 </button>
               </form>
               <?php if (isset($erreur)) { ?> <span class="tips-alert error"><i class="fas fa-circle"></i><?= $erreur ?></span><?php } ?>
-              <?php if ($reussi) { ?> <span class="tips-alert reussi"><i class="fas fa-circle"></i>Commentaire ajouté !</span><?php } ?>
+              <?php if (isset($reussi) && $reussi || $_GET ['reussi']) { ?> <span class="tips-alert reussi"><i class="fas fa-circle"></i>Commentaire ajouté !</span><?php } ?>
             </div>
           <?php else: ?>
             <span class="tips-alert info"><i class="fas fa-circle"></i>Les commentaires ont étés désactivés pour ce cours</span>
