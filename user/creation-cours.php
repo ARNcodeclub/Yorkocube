@@ -72,6 +72,7 @@ if (isset($_SESSION['id'])) {
         <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel="stylesheet">
         <title>York3</title>
         <script src="../templates/js/jquery.js"></script>
+        <script src="../templates/js/ckeditor/ckeditor.js"></script>
         <script type="text/javascript">
         window.addEventListener('load', function(){
           document.getElementById('loader').style.display = 'none';
@@ -110,7 +111,7 @@ if (isset($_SESSION['id'])) {
             </select>
           </label><br />
           <label for="sous-theme">Sous-theme du cours(facultatif)<input type="text" id="sous-theme" name="sous-theme"></label><br />
-          <label for="contenu">Contenu:<br /><textarea name="contenu" rows="10" cols="80" placeholder="Entrez votre cours ici (Le Markdown est utilisable)"></textarea></label>
+          <label for="contenu">Contenu:<br /><textarea name="contenu"></textarea></label><script>CKEDITOR.replace('contenu');</script>
           <label for="bg-image">Image(qui est dans le dossier /templates/images/badges)<input type="text" id="bg-image" name="pdp"></label><br />
           <input type="submit" name="validation" value="Créer">
         </form>

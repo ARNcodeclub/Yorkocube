@@ -258,12 +258,14 @@ form{
 
 .repondreCommentaireBox{
   display: none;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .reponseCommentaireForm{
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .repondreCommentaireForm input{
@@ -272,6 +274,22 @@ form{
   border-radius: 2px;
   padding: 15px;
   margin-left: 5px;
+  color: #000;
+}
+
+#reponseCommentaireInput{
+  width: 100%;
+}
+
+.repondreCommentaireForm input[type=submit]{
+  color: #6cd647;
+  border: none;
+  transition: all .2s ease;
+}
+
+.repondreCommentaireForm input[type=submit]:hover{
+  background-color: #6cd647;
+  color: #fff;
 }
 
 .idCommentaire{

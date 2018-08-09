@@ -2,7 +2,7 @@
 if (isset($_GET['id'])) {
   $getid = $_GET['id'];
 }else{
-  header('Location: list-cours.php');
+  header('Location: ../cours.php');
 }
 // Selectionne le cours dans le bdd en fonction de l'id se trouvant dans l'URL
 $reqCours = $bdd->prepare('SELECT * FROM cours WHERE id = ?');

@@ -15,19 +15,23 @@ include '../user/a-function.php';
         <link href="../templates/css/responsive.css" rel="stylesheet">
         <link href="../templates/css/fontawesome-all.css" rel="stylesheet">
         <link href="../templates/css/all.css" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel="stylesheet">
         <link rel="icon" href="../templates/images/york.ico" />
         <script src="../templates/js/jquery.js"></script>
         <script src="../templates/js/script.js"></script>
         <script type="text/javascript">
-        $(function() {
-          var $button = $('.repondreCommentaireButton');
-          $button.on('click', function() {
-            $('.repondreCommentaireBox').css({"display": "flex"});
-          });
-        });
-          $({
-          });
+          function showBox(param) {
+           var allBoxes = document.getElementsByClassName('repondreCommentaireBox');
+           var i = allBoxes.length;
+           while (i--) {
+             allBoxes[i].style.display = "none";
+            }
+           var button = document.getElementById('repondreCommentaire'+param);
+           if (button.style.display == "none") {
+              button.style.display = "flex";
+           }else{
+              button.style.display = "none";
+           }
+          }
         </script>
         <link href="../templates/css/all.css" rel="stylesheet">
         <title>York3</title>
@@ -94,15 +98,15 @@ include '../user/a-function.php';
                   <p class="commentaire-message-date"><?= $donnees['date'] ?></p>
                 </div>
                 <?php if ($donnees['reponseCommVrai'] == 0): ?>
-                  <p class="repondreCommentaireButton" id="repondreCommentaireButton<?= $donnees['id'] ?>">Répondre</p>
+                  <p class="repondreCommentaireButton" onclick="showBox(<?= $donnees['id'] ?>)" id="repondreCommentaireButton">Répondre</p>
                 <?php endif; ?>
               </div>
               <!-- Boc contenant le formulaire permettant de répondre à des commentaires (caché par défaut)  -->
               <?php if ($donnees['reponseCommVrai'] == 0): ?>
-              <div class="repondreCommentaireBox" id="repondreCommentaire<?= $donnees['id'] ?>">
+              <div class="repondreCommentaireBox" style="display: none;" id="repondreCommentaire<?= $donnees['id'] ?>">
                 <form class="repondreCommentaireForm" action="" method="post">
-                  <input type="text" name="idCommentaire" class="idCommentaire" value="<?= $donnees['id'] ?>"> <!-- A Cacher -->
-                  <input type="reponseCommentaire" name="reponseCommentaire" placeholder="Votre réponse">
+                  <input type="text" name="idCommentaire" class="idCommentaire" value="<?= $donnees['id'] ?>">
+                  <input type="reponseCommentaire" name="reponseCommentaire" id="reponseCommentaireInput" placeholder="Votre réponse">
                   <input type="submit" name="repondreCommentaireValider" value="Répondre">
                 </form>
               </div>
