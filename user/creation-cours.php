@@ -3,7 +3,6 @@ session_cache_expire('private, must-revalidate');
 session_start();
 include 'a-connect.php';
 include 'a-function.php';
-include '../templates/php/Parsedown.php';
 if (isset($_SESSION['id'])) {
   if (isset($_POST['submitConnexion'])) {
     if (sha1($_POST['mdpConnexion']) == "b7743322967135224587dfc5e43ba8a613782f11") {
@@ -25,9 +24,7 @@ if (isset($_SESSION['id'])) {
       if (!empty($_POST['pdp'])) {
         $pdp = $_POST['pdp'];
       }
-      $Parsedown = new Parsedown();
-      $contenu = nl2br($_POST['contenu']);
-      $contenu = $Parsedown->text($contenu);
+      $contenu = $_POST['contenu'];
       $insertCours = $bdd->prepare('INSERT INTO cours(titre, contenu, auteur, id_auteur,theme, sous_theme, date, pdp) VALUES(?,?,?,?,?,?,?,?)');
       $insertCours->execute(array($name, $contenu, $_SESSION['pseudo'], $_SESSION['id'], $theme, $sous_theme, null, $pdp));
 
@@ -42,8 +39,8 @@ if (isset($_SESSION['id'])) {
       $infosUser = $reqInfosUser->fetch();
 
       if ($infosUser['estAuteur'] != 1) {
-        $insertCours = $bdd->prepare('INSERT INTO auteur(id_membre, pdp) VALUES(?,?)');
-        $insertCours->execute(array($_SESSION['id'], $_SESSION['pdp']));
+        $insertAuteur = $bdd->prepare('INSERT INTO auteur(id_membre, pdp_auteur) VALUES(?,?)');
+        $insertAuteur->execute(array($_SESSION['id'], $_SESSION['pdp']));
         $reqUpdate = $bdd->prepare('UPDATE membre SET estAuteur = True WHERE id = ?');
         $reqUpdate->execute(array($_SESSION['id']));
       }
@@ -123,7 +120,7 @@ if (isset($_SESSION['id'])) {
         <i class="fas fa-lock"></i>
         <p>Cette page est sécurisée par mot de passe</p>
         <input type="password" name="mdpConnexion">
-        <input type="submit" name="submitConnexion" value="Accéder à la page de gréation de cours">
+        <input type="submit" name="submitConnexion" value="Accéder à la page de création de cours">
       </form>
     <?php endif; ?>
     <?php if (isset($erreur)): ?>

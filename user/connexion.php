@@ -37,7 +37,7 @@ session_start();
   <head>
     <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>Inscription - Yorkocube</title>
+    <title>Connexion - Yorkocube</title>
     <link rel="stylesheet" href="../templates/css/styles.css">
 		<link rel="stylesheet" href="../templates/css/auth.css">
 		<link href="../templates/css/header.css" rel="stylesheet">
@@ -56,13 +56,13 @@ session_start();
 			<nav>
 				<?php if (isset($_SESSION['id'])): ?>
 					<?php if (isset($_SESSION['pdp']) AND $_SESSION['pdp'] != "user.svg"): ?>
-						<a href="../../user/profil.php?id=<?= $_SESSION['id'] ?>" id="profil-link"><img src="../../templates/images/avatars/<?= $_SESSION['pdp'] ?>" id="profil-link-avatar"></i><p><?= $_SESSION['pseudo'] ?></p></a>
+						<a href="profil.php?id=<?= $_SESSION['id'] ?>" id="profil-link"><img src="../../templates/images/avatars/<?= $_SESSION['pdp'] ?>" id="profil-link-avatar"></i><p><?= $_SESSION['pseudo'] ?></p></a>
 					<?php else: ?>
-						<a href="../../user/profil.php?id=<?= $_SESSION['id'] ?>" id="profil-link"><i class="fas fa-user-circle" id="profil-link-icon"></i><p><?= $_SESSION['pseudo'] ?></p></a>
+						<a href="profil.php?id=<?= $_SESSION['id'] ?>" id="profil-link"><i class="fas fa-user-circle" id="profil-link-icon"></i><p><?= $_SESSION['pseudo'] ?></p></a>
 					<?php endif; ?>
 				<?php else: ?>
-					<a href="../../user/inscription.php" class="link_button" id="login_button">S'inscrire</a>
-					<a href="../../user/connexion.php" class="link_button" id="connect_button">Se connecter</a>
+					<a href="inscription.php" class="link_button" id="login_button">S'inscrire</a>
+					<a href="connexion.php" class="link_button" id="connect_button">Se connecter</a>
 				<?php endif; ?>
 			</nav>
 		</header>

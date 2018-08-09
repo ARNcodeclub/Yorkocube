@@ -33,12 +33,21 @@ if (!empty($_SESSION['id'])) {
       $descriEcrite = False;
       if (isset($_POST['ecrireDescription'])) {
         $descri = substr(htmlspecialchars($_POST['description']), 0, 255);
-        $updateDescri = $bdd->prepare('UPDATE auteur SET description = ?, pdp_auteur = ? WHERE id_membre=?');
-        $updateDescri->execute(array($descri, $pdp, $id));
+        $updateDescri = $bdd->prepare('UPDATE auteur SET description = ? WHERE id_membre=?');
+        $updateDescri->execute(array($descri, $id));
         header('Location: profil.php?id=' . $getid);
       }
     }
+    // On selectionne les cours VALIDES fait par l'utilistateur
+    $reqCours = $bdd->prepare("SELECT * FROM cours WHERE id_auteur = ? AND estValide = 1 ORDER BY theme DESC");
+    $reqCours->execute(array($_SESSION['id']));
   }
+
+  // On selectionne les derniers commentaires fait par l'utilistateur
+  $reqLastsComments = $bdd->prepare("SELECT * FROM commentaires WHERE id_auteur = ? ORDER BY id DESC LIMIT 0,3");
+  $reqLastsComments->execute(array($_SESSION['id']));
+
+
 }else{
   header('Location: connexion.php');
 }
@@ -82,23 +91,61 @@ if (!empty($_SESSION['id'])) {
         <h1><?= $infoUser['pseudo'] ?></h1>
         <img src="../templates/images/avatars/<?= $infoUser['pdp'] ?>" alt="Photo de profil">
       </div>
-      <?php if ($estAuteur): ?>
-        <fieldset>
-          <legend>Auteur</legend>
-          <?php if (!$descriEcrite): ?>
-            <form action="" method="post" enctype="multipart/form-data">
-              <textarea name="description" rows="4" cols="60" placeholder="Description (250 caractères maximum)" maxlength="255"></textarea>
-              <input type="submit" name="ecrireDescription" value="Valider ma description">
-              <p style="color:red">Attention, votre description et votre avatar ne pourront plus être modifiés</p>
-            </form>
-          <?php else: ?>
-            <p>Description: <?= $infosAuteur['description']; ?></p>
-          <?php endif; ?>
-        </fieldset>
+      <div id="profil-dashboard">
+
+        <?php if ($estAuteur): ?>
+        <div id="profil-dashboard-auteur" class="profil-dashboard-element">
+          <p class="profil-dashboard-element_titre">Auteur</p>
+              <?php if (!$descriEcrite): ?>
+                <form action="" method="post" enctype="multipart/form-data">
+                  <input name="description" placeholder="Description (250 caractères max)" maxlength="255"/>
+                  <input type="submit" name="ecrireDescription" value="Valider ma description">
+                  <p style="color:red">Attention, votre description ne pourra plus être modifiée</p>
+                </form>
+              <?php else: ?>
+                <p>Description: <?= $infosAuteur['description']; ?></p>
+              <?php endif; ?>
+          <p class="profil-dashboard-element_sous-titre">Vos cours</p>
+          <?php
+          // while ($donnees = $reqCours->fetch()) {
+          //   echo ";
+          // }
+
+          $optGroup = "";
+            while ($donnees = $reqCours->fetch()) {
+              if ($donnees['theme'] != $optGroup) {
+                $optGroup = $donnees['theme'];
+                echo "<p class='profil-dashboard-cours_theme'>" . $optGroup . "</p>";
+              }
+              echo "<a class='profil-dashboard-cours_titre' href='../cours/cours.php?id=" . $donnees['id'] . "'>" . $donnees['titre'] . "</a><br />";
+            }
+          if ($optGroup === "") {
+            echo "<em>Aucuns de vos cours n'a encore été validé...</em>";
+          }
+          ?>
+        </div>
       <?php endif; ?>
+
       <?php if ($infoUser['admin'] == 1): ?>
-        <p>Donc, tu es admin... Et tant que tel tu as le droit d'accéder à la <a href="admin/gestion.php">page d'adminitration</a></p>
+        <div id="profil-dashboard-admin" class="profil-dashboard-element">
+          <p class="profil-dashboard-element_titre">Admin</p>
+            <p>Donc, tu es admin... Et tant que tel tu as le droit d'accéder à la <a href="admin/gestion.php" style="text-decoration:underline;">page d'adminitration</a></p>
+        </div>
       <?php endif; ?>
+        <div class="profil-dashboard-element" id="profil-dashboard-commentaires">
+          <p class="profil-dashboard-element_titre">Vos derniers commentaires</p>
+          <?php $i=0;
+          while ($donnees = $reqLastsComments->fetch()) {
+            echo "<a href='../cours/cours.php?id=" . $donnees['id_tuto'] . "'>" . $donnees['contenu'] . "</a><br />";
+            $i++;
+          }
+          if ($i === 0) {
+            echo "<em>Vous n'avez encore jamais commenté, qu'est-ce que cous attendez ?!</em>";
+          }
+          ?>
+
+        </div>
+    </div>
       <?php if (isset($erreur)): ?>
         <?= $erreur ?>
       <?php endif; ?>

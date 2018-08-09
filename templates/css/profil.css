@@ -72,3 +72,45 @@ h1{
 i{
   color: #000;
 }
+
+/*************** Profil Dashboard ***************/
+#profil-dashboard{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profil-dashboard-element{
+  margin: 15px;
+  position: relative;
+  border: 1px solid #eee;
+  /* box-shadow: 2px 2px 2px #a1a1a1; */
+  padding: 30px 15px 15px 15px;
+  border-radius: 2px;
+  max-width: 25%;
+}
+
+.profil-dashboard-element_titre{
+  font-size: 17px;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+.profil-dashboard-element_sous-titre{
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: -5px;
+  margin-bottom: 5px;
+}
+
+.profil-dashboard-cours_theme{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.profil-dashboard-cours_titre{
+  margin-left: 5px;
+}

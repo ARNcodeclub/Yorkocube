@@ -220,6 +220,11 @@ form{
   margin-bottom: 10px;
 }
 
+.commentaire-message-auteur{
+  margin-left: 5px;
+  color: #FFD700;
+}
+
 .commentaire-message-date{
   position: absolute;
   right: 2rem;
@@ -303,26 +308,6 @@ form{
   color: #fff;
 }
 
-/************** Non connecté **************/
-#non_connecte{
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#non_connecte strong{
-  padding: 15px;
-  /* border: 2px solid rgb(227, 82, 82); */
-  border: 2px solid #fff;
-  background-color: rgb(235, 107, 107);
-  color: #fff;
-}
-
-#non_connecte a{
-  color: #fff;
-}
 
 #cours-bloque{
   display: flex;

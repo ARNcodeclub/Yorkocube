@@ -6,7 +6,7 @@ if (!empty($_SESSION['id'])) {
   $reqUser->execute(array($_SESSION['id']));
   $reqUser = $reqUser->fetch();
   if ($reqUser['admin']) {
-    $reqCours = $bdd->prepare('SELECT * FROM cours');
+    $reqCours = $bdd->prepare('SELECT * FROM cours ORDER BY theme DESC');
     $reqCours->execute(array());
     $reqMembres = $bdd->prepare('SELECT * FROM membre');
     $reqMembres->execute(array());

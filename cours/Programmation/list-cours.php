@@ -50,8 +50,6 @@ $reqCours->execute();
         </nav>
       </header>
       <div id="list-cours">
-
-        <table>
         <?php $i = 0; while ($donnees = $reqCours->fetch()) { ?>
         <div class="card-cours">
           <img src="../../templates/images/badges/<?= $donnees['pdp'] ?>" alt="">
@@ -61,10 +59,9 @@ $reqCours->execute();
               <a href="../cours.php?id=<?= $donnees['id'] ?>">Voir le cours</a>
             </div>
         </div>
-        </table>
         <?php $i++; } ?>
         <?php if ($i == 0): ?>
-          <div id="non_connecte">
+          <div id="pasDeCours">
             <strong>Il n'existe actuellement aucun cours sur le sujet...</strong><br />
           </div>
         <?php endif; ?>

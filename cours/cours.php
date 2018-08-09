@@ -93,7 +93,7 @@ include '../user/a-function.php';
                 <?php endif; ?>
                 <img src="../templates/images/avatars/<?= $donnees['pdp'] ?>">
                 <div class="commentaire-message">
-                  <p class="commentaire-message-pseudo"><?= $donnees['auteur'] ?></p>
+                  <p class="commentaire-message-pseudo"><?php echo $donnees['auteur']; if ($donnees['id_auteur'] == $cours['id_auteur']){ echo '<i class="fas fa-star commentaire-message-auteur" alt title="'. $donnees['auteur'].' est l\'auteur du cours"></i>';} // Check en même temps si le commenatire n'a pas été écrit par l'auteur du cours () ?></p>
                   <p><?= $donnees['contenu'] ?></p>
                   <p class="commentaire-message-date"><?= $donnees['date'] ?></p>
                 </div>
@@ -146,7 +146,7 @@ include '../user/a-function.php';
           <span id="cours-bloque"><i class="fas fa-lock"></i>Ce cours n'as pas encore été validé.</span>
     <?php } ?>
     <?php }else{ ?>
-      <span id="cours-bloque"><i class="fas fa-question"></i>Beaucoup de mystères entoure ce cours... Existe t'il ? Serait ce une invention ? Personne ne se sait</span>
+      <span id="cours-bloque"><i class="fas fa-question"></i>Beaucoup de mystères entourent ce cours... Existe-t'il ? Serait-ce une invention ? Personne ne le sait</span>
     <?php } ?>
       <footer>
         Copyright (c) 2018 Copyright ARNCodeClub All Rights Reserved.
