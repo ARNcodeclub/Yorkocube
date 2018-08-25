@@ -1,16 +1,30 @@
+@font-face {
+    font-family: 'varela_roundregular';
+    src: url('VarelaRound-Regular-webfont.eot');
+    src: url('VarelaRound-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('VarelaRound-Regular-webfont.woff2') format('woff2'),
+         url('VarelaRound-Regular-webfont.woff') format('woff'),
+         url('VarelaRound-Regular-webfont.ttf') format('truetype'),
+         url('VarelaRound-Regular-webfont.svg#varela_roundregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 *{
   margin: 0;
   padding: 0;
 }
-
 html{
+
   /* height: 100%; */
+  overflow-x: hidden;
 }
 
 body{
+  position: relative;
   /* height: 100vh; */
   overflow-x: hidden;
-  font-family: "Varela Round";
+  font-family: 'varela_roundregular', "Varela Round", "Roboto", "Arial";
 }
 
 #loader{

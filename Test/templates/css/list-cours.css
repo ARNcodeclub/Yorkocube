@@ -1,0 +1,104 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  background: linear-gradient(90deg , #ec4438, #d52735);
+}
+
+#list-cours{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: all .2s ease;
+  height: 80%;
+  color: #fff;
+}
+
+.card-cours{
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  text-align: center;
+  min-height: 216px;
+  /* max-height: 256px; */
+  max-width: 150px;
+  overflow: hidden;
+}
+
+.card-cours img{
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  align-self: flex-start;
+}
+
+.card-cours-invisible{
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  /* margin-top: -50%; */
+  transition: all 1s ease-out;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+#list-themes{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 25%;
+}
+
+.theme{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50%;
+  margin: 5px;
+  display: flex;
+  font-size: 1.5em;
+  border-radius: 5px;
+  background-color: #ec4438;
+  border: 2px solid #fff;
+  padding: 15px;
+  transition: all .2s ease;
+}
+
+.card-cours-invisible a{
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid #fff;
+  padding: 3px;
+  margin-top: 2px;
+}
+
+.card-cours-invisible a:hover{
+  background: #fff;
+  color: #ec4438;
+}
+
+.theme:hover{
+  background-color: #d52735;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
+}

@@ -9,8 +9,16 @@ $reqCours->execute();
     <head>
         <link href="../../templates/css/all.css" rel="stylesheet">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="York³">
+		<meta name="mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="York³">
+		<meta name="mobile-web-app-capable" content="yes">
         <script type="text/javascript">
         window.addEventListener('load', function(){
           document.getElementById('loader').style.display = 'none';
@@ -19,6 +27,7 @@ $reqCours->execute();
         <link href="../../templates/css/styles.css" rel="stylesheet">
         <link href="../../templates/css/cours.css" rel="stylesheet">
         <link href="../../templates/css/header.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="../../templates/css/fontawesome-all.css" rel="stylesheet">
         <link href="../../templates/css/list-cours.css" rel="stylesheet">
         <link rel="icon" href="../../templates/images/york.ico" />

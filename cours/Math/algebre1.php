@@ -30,6 +30,7 @@ $reqComments->execute(array(1));
         <meta charset="utf-8">
         <link href="../../templates/css/cours.css" rel="stylesheet">
         <link href="../../templates/css/header.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="../../templates/css/utils.css" rel="stylesheet">
         <link href="../../templates/css/responsive.css" rel="stylesheet">
         <link href="../../templates/css/fontawesome-all.css" rel="stylesheet">

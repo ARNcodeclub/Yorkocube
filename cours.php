@@ -10,9 +10,14 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['pseudo'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="templates/css/all.css" rel="stylesheet">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+		    <meta name="apple-mobile-web-app-title" content="York³">
+		    <meta name="mobile-web-app-capable" content="yes">
+        <link href="templates/css/all.css" rel="stylesheet">
+        <link rel="apple-touch-icon" href="templates/images/icon-apple.png"/>
         <script type="text/javascript">
         window.addEventListener('load', function(){
           document.getElementById('loader').style.display = 'none';
@@ -21,10 +26,10 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['pseudo'])) {
         <link href="templates/css/styles.css" rel="stylesheet">
         <link href="templates/css/cours.css" rel="stylesheet">
         <link href="templates/css/header.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="templates/css/fontawesome-all.css" rel="stylesheet">
         <link href="templates/css/list-cours.css" rel="stylesheet">
         <link rel="icon" href="templates/images/york.ico" />
-        <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel="stylesheet">
         <title>York3</title>
     </head>
 
@@ -50,8 +55,15 @@ if (!isset($_SESSION['id']) || !isset($_SESSION['pseudo'])) {
             <a href="user/connexion.php" class="link_button" id="connect_button">Se connecter</a>
           <?php endif; ?>
         </nav>
+        <!-- Barre de recherche de cours (au besoin) -->
+        <form class="search-cours" action="user/recherche-cours.php" method="get">
+          <input type="search" name="search" placeholder="Chercher un cours" autocomplete="off">
+          <button type="submit" name="submit" id="search-button_validate">
+            <i class="fas fa-search" id="search-icon_validate"></i>
+          </button>
+        </form>
       </header>
-      <div class="center", id="list-cours">
+      <div class="center" id="list-cours">
         <section id="list-themes">
           <?php $i=0; foreach ($dossier as $key => $value): ?>
             <div class="theme">

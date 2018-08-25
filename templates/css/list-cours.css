@@ -8,7 +8,8 @@ html{
 }
 
 body{
-  height: 100vh;
+  height: 100%;
+  background: linear-gradient(90deg , #ec4438, #d52735);
 }
 
 #list-cours{
@@ -18,20 +19,19 @@ body{
   align-items: center;
   flex-wrap: wrap;
   transition: all .2s ease;
-  height: 90%;
-  background: linear-gradient(90deg , #ec4438, #d52735);
+  height: 80%;
   color: #fff;
 }
 
 .card-cours{
-  display: inherit;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 15px;
   text-align: center;
   min-height: 216px;
-  max-height: 256px;
+  /* max-height: 256px; */
   max-width: 150px;
   overflow: hidden;
 }
@@ -40,20 +40,15 @@ body{
   width: 150px;
   height: 150px;
   z-index: 1;
+  align-self: flex-start;
 }
 
 .card-cours-invisible{
-  display: inherit;
   flex-direction: column;
   align-items: center;
-  opacity: 0;
-  margin-top: -50%;
-  transition: all .2s ease;
-}
-
-.card-cours:hover .card-cours-invisible{
-  opacity: 1;
-  margin-top: 0;
+  display: flex;
+  /* margin-top: -50%; */
+  transition: all 1s ease-out;
 }
 
 .center{
@@ -106,4 +101,48 @@ body{
 a{
   color: #fff;
   text-decoration: none;
+}
+
+/********* RECHERCHE COURS  *********/
+#box-result_search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  margin: 25px;
+}
+
+#box-result_search p{
+  margin: 5px;
+}
+
+#box-result_search a{
+  color: #fff;
+  text-decoration: none;
+  border: 2px solid #fff;
+  padding: 3px;
+  margin-top: 2px;
+}
+
+#box-result_search a:hover{
+ background: #fff;
+ color: #ec4438;
+}
+
+
+#box-result_search img{
+  width: 150px;
+}
+
+#box-result_search-box{
+  display: flex;
+}
+
+.box-result_search-box-link{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
 }

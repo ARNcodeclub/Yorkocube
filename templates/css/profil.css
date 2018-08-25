@@ -65,10 +65,6 @@ nav .link:hover{
     text-align: center;
 }
 
-h1{
-  text-decoration: underline;
-}
-
 i{
   color: #000;
 }
@@ -88,7 +84,7 @@ i{
   /* box-shadow: 2px 2px 2px #a1a1a1; */
   padding: 30px 15px 15px 15px;
   border-radius: 2px;
-  max-width: 25%;
+  min-width: 25%;
 }
 
 .profil-dashboard-element_titre{
@@ -113,4 +109,18 @@ i{
 
 .profil-dashboard-cours_titre{
   margin-left: 5px;
+}
+
+#profil-dashboard-admin{
+  width: 20%;
+}
+
+.profil-dashboard-commentaires{
+  display: flex;
+  position: relative;
+}
+
+.profil-dashboard-commentaires_contenu a{
+  display: inline;
+  outline: none
 }

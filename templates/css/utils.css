@@ -31,6 +31,7 @@
   padding: 15px 15px 15px 20px;
 	background-color: #323232;
 	animation: shake .5s 1 0s, disparition .1s forwards 5s;
+	z-index: 100000;
 }
 
 .tips-alert i{

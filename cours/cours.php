@@ -8,13 +8,18 @@ include '../user/a-function.php';
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="York³">
+		<meta name="mobile-web-app-capable" content="yes">
         <link href="../templates/css/cours.css" rel="stylesheet">
-        <link href="../templates/css/header.css" rel="stylesheet">
         <link href="../templates/css/utils.css" rel="stylesheet">
         <link href="../templates/css/responsive.css" rel="stylesheet">
         <link href="../templates/css/fontawesome-all.css" rel="stylesheet">
         <link href="../templates/css/all.css" rel="stylesheet">
+        <link href="../templates/css/header.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link rel="icon" href="../templates/images/york.ico" />
         <script src="../templates/js/jquery.js"></script>
         <script src="../templates/js/script.js"></script>
@@ -84,9 +89,9 @@ include '../user/a-function.php';
             while ($donnees = $reqComments->fetch()) {?>
               <!-- Si l'user connecté est l'auteur du message, on lui propose de le supprimer -->
             <?php if ($donnees['reponseCommVrai'] != 0): ?>
-              <div class="commentaire sous-commentaire">
+              <div class="commentaire sous-commentaire" id="commentaire<?= $donnees['id'] ?>">
             <?php else: ?>
-              <div class="commentaire">
+              <div class="commentaire" id="commentaire<?= $donnees['id'] ?>">
             <?php endif; ?>
                 <?php if ($donnees['id_auteur'] == $_SESSION['id']): ?>
                   <a href="?id=<?= $getid ?>&supprimerCom=<?= $donnees['id'] ?>"><i class="fas fa-times erase-button" alt title="Supprimer le commentaire"></i></a>

@@ -1,0 +1,162 @@
+/****************** HEADER ******************/
+header{
+  display: flex;
+  z-index: 500;
+  position: relative;
+  padding: 10px 10px 10px 10%;
+  justify-content: flex-start;
+  align-items: center;
+  height: 10%;
+  background: #fff;
+}
+
+header img{
+  width: 150px;
+}
+
+header a{
+  outline: none;
+}
+
+nav{
+  position: absolute;
+  right: 15%;
+  border-style: none;
+}
+
+nav a{
+  text-decoration: none;
+}
+
+#div-banner-link{
+  margin-left: 50px;
+}
+
+.banner-link{
+  text-decoration: none;
+  color: #000000;
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 17px;
+  /* transition: all .2s ease; */
+}
+
+.banner-link:hover{
+  /* margin-top: -2px; */
+  border-bottom: 2px solid #00b316;
+}
+
+#link_title{
+  text-decoration: none;
+  color: #000;
+  font-size: 2em;
+}
+
+#profil-link{
+	display: flex;
+	align-items: center;
+	color: #03a87c;
+	border-radius: 5px;
+	padding: 5px;
+  font-size: 17px;
+	transition: all .5s ease;
+}
+
+#profil-link p{
+  color: #03a87c;
+}
+
+#profil-link:hover p{
+  color: #fff;
+}
+
+#profil-link:hover{
+	background-color: #03a87c;
+	color: #fff;
+}
+
+ #profil-link:hover #profil-link-icon{
+	 color: #fff;
+ }
+
+ #profil-link-avatar{
+   width: 45px;
+   height: 45px;
+   border-radius: 50%;
+   margin: 0 5px 0 0;
+   border: 3px solid #fff;
+ }
+
+#profil-link-icon{
+	margin: 0 5px 0 0;
+	font-size: 2.5em;
+	color: #03a87c;
+	transition: all .5s ease;
+}
+
+.link_button{
+  color: #03a87c;
+  padding: 10px;
+  border-radius: 5px;
+  /* font-family: "Ubuntu","Open Sans","Helvetica Neue",sans-serif; */
+  font-size: 13px;
+}
+
+#connect_button{
+  border: 1px solid #03a87c;
+  transition: all .2s ease;
+}
+
+#connect_button:hover{
+  background-color: rgba(3, 168, 124, 0.77);
+  color: #fff;
+}
+
+#profil-link-deco{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+#profil-link-deco p{
+  color: rgb(233, 63, 63);
+}
+
+#profil-link-deco:hover{
+  background-color: rgb(233, 63, 63);
+}
+
+#deco_button{
+  font-size: 1.5em;
+  vertical-align: middle;
+  margin-right: 5px;
+  color: rgb(233, 63, 63);
+  transition: all .2s ease;
+}
+
+#profil-link-deco:hover #deco_button, #profil-link-deco:hover p{
+  color: #fff;
+}
+
+#profil-link-modif{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 5px;
+  padding: 5px;
+}
+
+#profil-link-modif:hover{
+  border: 1px solid rgb(58, 61, 56);
+  padding: 4px;
+}
+
+#profil-link-modif p, i{
+  color: #5e6a5d;
+}
+
+#profil-link-modif i{
+  font-size: 1.5em;
+  vertical-align: middle;
+}

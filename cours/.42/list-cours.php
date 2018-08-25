@@ -8,15 +8,19 @@ $reqCours->execute();
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="York³">
+		<meta name="mobile-web-app-capable" content="yes">
         <link href="../../templates/css/styles.css" rel="stylesheet">
         <link href="../../templates/css/cours.css" rel="stylesheet">
         <link href="../../templates/css/header.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
         <link href="../../templates/css/fontawesome-all.css" rel="stylesheet">
         <link href="../../templates/css/all.css" rel="stylesheet">
         <link href="../../templates/css/list-cours.css" rel="stylesheet">
         <link rel="icon" href="../../templates/images/york.ico" />
-        <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel="stylesheet">
         <title>York3</title>
     </head>
 
